@@ -1,0 +1,124 @@
+			     EE 109  - Spring 2021
+			      Temperature Monitor
+
+			   Operation of the Circuit
+
+Please record a video of you demonstrating the operation of the circuit.  To earn
+partial credit you may record demo videos at certain checkpoints of the system's
+design and construction.  We will grade **the highest checkpoint video** (i.e.
+each checkpoint video must show all the features from the previous checkpoint plus
+the new features added in the current checkpoint).
+
+Checkpoint 1 Video:
+1.  Splash screen with your name shown at start.
+
+2.  Temperature sensor responds to temperature changes (touch with your finger
+    to heat or blow on/remove your finger to cool the sensor) and
+    displays temperature with 0.1 degree Fahrenheit precision
+
+Paste link to checkpoint 1 demonstration video here:
+https://youtu.be/gLxe-VILLts
+
+Checkpoint 2 Video:
+**Demonstrate items 1 and 2 from the previous checkpoint again in this video**.
+Then further show:
+
+3.  Rotary encoder adjusts selected temperature threshold between
+    60 and 100 degrees (capped at those limits).
+
+4.  Threshold settings stored in EEPROM and retrieved when Arduino
+    restarted (power cycled).
+
+5.  Green and red LEDs and LCD messages respond correctly as temperature
+    changes below and above the warning temperature threshold set by the
+    rotary encoder and the +2 degree alert threshold.
+
+Paste link to checkpoint 2 demonstration video here:
+https://youtu.be/gLxe-VILLts
+
+Checkpoint 3 Video:
+**Demonstrate items 1 through 5 from the previous checkpoint again in this video**.
+Then further show:
+
+6.  Rotary encoder adjusts alert note between C3 and C5, when appropriate select
+    note button is chosen.
+
+7.  Note settings stored in EEPROM and retrieved when Arduino
+    restarted. (You can demonstrate this and item 4 above together with one restart)
+
+8.  Note played when temperature goes 2 degrees over threshold.
+
+
+Paste link to checkpoint 3 demonstration video here:
+https://youtu.be/gLxe-VILLts
+
+Review Question 1 (Cost Analysis):
+
+Assume we are building 1000 units of this system.  Use the provided part numbers
+(see the webpage) and the digikey.com or jameco.com website to find the total
+**cost per unit** (again assume we build a quantity of 1000 units) for these
+temperature warning systems.  Itemize the part costs (list each part and its unit
+cost when bought in units of 1000) and then show the final cost per unit below.
+Note: You only need to price the components used in the project (not all the
+components in your lab kit.  Also, you do need need to account for the cost of
+the circuit board or wires. In a real environment we would manufacture a PCB
+(Printed Circuit Board). As an optional task, you can search online for PCB
+manufacturers and what the costs and options are in creating a PCB.
+
+Number of Units: 1000
+
+USB Cable = $1.08 (unit price for buying 5pack) https://www.monoprice.com/product?p_id=5437
+Arduino Uno = $19.8 (unit price for 1000) https://www.digikey.com/en/products/detail/arduino/A000066/2784006
+LCD Shield = $8.90 (unit price for 1000) https://www.dfrobot.com/product-51.html
+resistor
+Pushbutton x2 = $2.88 (price for 2 at 2000 unit bulk order) https://www.sparkfun.com/cart
+Green LED: $0.10483
+Red LED: 	$0.10483 https://www.digikey.com/en/products/detail/kingbright/WP1503ID/3084098
+Encoder: $1.68342 https://www.digikey.com/en/products/detail/bourns-inc/3315Y-001-016L/2537732?s=N4IgTCBcDaIMxwIwFYCaBaADJxXEDYAZdAOQBEQBdAXyA
+Knob: $0.89 https://www.jameco.com/webapp/wcs/stores/servlet/OrderItemDisplay?catalogId=10001&langId=-1&storeId=10001&krypto=9uuB4GaQldwkU%2BPje68OfJYP6C1WRGtr%2BdJKcReHNDb1AiIV3i7Qk4Y9C34AC74QvXc5UlQK239SwxHWAaoqh7wTfkiBIiAX3uMjemlOlvqrf7Bs6xHrgCVkr88HgtJeaevCxUwV%2FMYLutllLiOF1DZ8PVxvQez00eIdfmCO3rdtVRPGVXzDQFxw8EAuvJ%2FtM2ZQO%2BDqWgWWE%2F1KZntgDA%3D%3D&ddkey=https%3AOrderItemAdd
+Buzzer: $0.47324 https://www.digikey.com/en/products/detail/cui-devices/CEM-1206S/412414
+Temperature Sensor: $4.22 https://www.newark.com/maxim-integrated-products/ds18b20/temp-sensor-0-5deg-c-to-92-3/dp/73Y1389?ost=73y1389
+4.7k resistor: $0.011 https://www.jameco.com/webapp/wcs/stores/servlet/ProductDisplay?langId=-1&storeId=10001&catalogId=10001&productId=691024&CID=EPIPRODUCTLINK
+2x Resistor for LED: $0.022
+
+Net Cost per Unit:
+1.08 + 19.8 + 8.9 + 2.88 + 0.10483 + 0.10483 + 1.68342 + 0.89 + 0.47324 + 4.22 + 0.011 + 0.022
+
+Net Cost Per Unit = $40.17
+
+Review Question 2 (Health/Safety/Reliability)
+
+Assume this system was to be used in a real industrial monitoring application.
+
+Considering reliability, health, and safety...
+
+ - What scenarios might you suggest testing (considering both HW and SW)
+    before releasing the product for use?
+
+		Hardware Tests:
+		- Extreme values (super cold and super hot)
+		- Different environments (humidity, basically anywhere besides my desk)
+		- Accuracy (compare with another temperature measuring device)
+		- Durability (Have the program run for a longer time, see if it still works)
+		-component failure tests --> does hardware turn off safely/quit gracefully
+
+		Software Tests:
+		- Invalid inputs
+			- Try simultaneously pressing buttons
+			- Rotating the knob extremely fast / pressing buttons at the same time
+			- Anything that is more "human" --> doing things simultaneously, slowly, quickly etc.
+		-Component failure tests --> is software able to detect
+
+ - How might you make your design more reliable? By reliability we don't just
+   mean keeping it running correctly (though you should consider that), but
+   also how you can detect that a connected component has failed to gracefully
+   handle such situations.  You can consider both HW and SW points of failure,
+   issues related to the operational environment, etc. and how to mitigate those
+   cases.
+
+	 1) Cover the circuit so that it isnt a bunch of exposed wires // Weatherproof
+	 2) Organize the cables and components so they are not hanging and are secure
+	 3) potentially fix/solder everything in place so that its not as loose
+	 4) Create a variety of error checks in software and utilize hardware interrupts to display error messages on lcd
+	 5) Create checks that turn off dangerous hardware components if there is hardware failure
+	 6) build in checks that occasionally monitor status of components
